@@ -1,0 +1,33 @@
+	<a id="contact"></a>
+	<footer class="footer">
+		<h4 class="footer-heading">Get in Touch</h4>
+		<div class="footer-wrap">
+			<aside class="footer-aside">
+				<ul class="footer-aside__list">
+					<li class="footer-aside__item">
+						<i class="fa fa-mobile"></i>
+						<a href="tel:+12679097828">267.909.7828</a>
+					</li>
+					<li class="footer-aside__item">
+						<i class="fa fa-envelope-o"></i>
+						<a href="mailto:juliafsimmons@gmail.com">juliafsimmons@gmail.com</a>
+					</li>
+					<li class="footer-aside__item">
+						<i class="fa fa-facebook"></i>
+						<a href="https://fb.me/juliasimmonsphotography" target="_blank">fb.me/juliasimmonsphotography</a>
+					</li>
+					<li class="footer-aside__item">
+						<i class="fa fa-instagram"></i>
+						<a href="https://instagram.com/juliafsimmons" target="_blank">@juliafsimmons</a>
+					</li>
+				</ul>
+			</aside>
+			<main class="footer-main">
+				<h2 class="footer-main__heading">Send me a message;<br>I'd love to hear from you.</h2>
+				<div class="footer-main__typeform">
+					<a class="typeform-share button" href="https://mattsimmons.typeform.com/to/tK6JnE" data-mode="1" target="_blank">Contact Form</a>
+					<script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}id=id+'_';if(!gi.call(d,id)){qs=ce.call(d,'link');qs.rel='stylesheet';qs.id=id;qs.href=b+'share-button.css';s=gt.call(d,'head')[0];s.appendChild(qs,s)}})()</script>
+				</div>
+			</main>
+		</div>
+	</footer>

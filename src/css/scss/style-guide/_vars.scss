@@ -1,0 +1,22 @@
+// ==========================================================
+//
+//
+//         Style Guide - Vars
+// 
+//
+// ==========================================================
+
+$sg__vars: (
+	'easing': (
+		default: ease
+	),
+	'timing': (
+		default: 0.3s,
+		slow: 0.6s,
+		medium: 0.24s,
+		fast: 0.14s
+	)
+);
+@function sgvars($name, $variant: default) {
+	@return map-get(map-get($sg__vars, $name), $variant);
+}

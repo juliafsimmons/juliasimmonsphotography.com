@@ -1,0 +1,227 @@
+.index-photos {
+	width: 100%;
+	height: auto;
+	background: #fff;
+	border-top: 1px solid #fff;
+	position: relative;
+	z-index: 15;
+	&::before {
+		content: '';
+		display: block;
+		width: 0; height: 0;
+		border-style: solid;
+		border-width: 7vh 0 0 100vw;
+		border-color: transparent transparent transparent #fff;
+		position: absolute;
+		top: -7vh;
+		left: 0;
+	}
+	&::after {
+		content: '';
+		display: block;
+		width: 0; height: 0;
+		border-style: solid;
+		border-width: 7vh 100vw 0 0;
+		border-color: #fff transparent transparent transparent;
+		position: absolute;
+		bottom: -7vh;
+		left: 0;
+	}
+	&__wrap {
+		width: 100%;
+		max-width: 100%;
+		margin: 0 auto;
+		// padding: 64px 32px;
+		padding: 12vh 64px;
+	}
+	&__heading {
+		font: italic 400 40px/40px $playfair;
+		color: #222;
+		text-align: center;
+		padding: 0 0 32px 0;
+		&::after {
+			content: '';
+			display: block;
+			width: 120px;
+			height: 2px;
+			background: color('champagne');
+			margin: 16px auto 0 auto;
+		}
+	}
+	&__grid {
+		width: 100%;
+		column-count: 3;
+		column-gap: 4px;
+		padding-top: 32px;
+		// column-fill: auto;
+	}
+	&__figure {
+		display: inline-block;
+		-webkit-column-break-inside: avoid;
+		-moz-column-break-inside: avoid;
+		column-break-inside: avoid;
+		break-inside: avoid-column;
+		// page-break-inside: avoid;
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		// background: color('navy');
+		background: #fff;
+		font-size: 0;
+		opacity: 0.0;
+		cursor: pointer;
+		transition: opacity 0.14s;
+		&[data-full-res="/assets/gallery/"] {
+			cursor: default;
+			&:hover { .index-photos__hover { opacity: 0.0; } }
+		}
+		&.loaded { opacity: 1.0; }
+	}
+	&__photo {
+		width: 100%;
+		height: auto;
+		position: relative;
+		z-index: 5;
+	}
+	&__hover {
+		position: absolute;
+		bottom: 24px; left: 50%;
+		z-index: 15;
+		text-align: center;
+		font: 700 12px/12px $inconsolata;
+		color: color('navy');
+		box-shadow: 0 1px 6px rgba(0,0,0,0.24);
+		@include psd-letter-spacing(80);
+		border-radius: 2px;
+		background: #fff;
+		padding: 8px;
+		opacity: 0.0;
+		transform: translate3d(-50%,1px,0) scale(0.96);
+		transition: all 0.14s;
+	}
+}
+
+html.scroll-lock {
+	body {
+		position: fixed;
+	}
+}
+.gallery {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0; left: -10000px;
+	z-index: 1500;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	font-size: 0;
+	opacity: 0.0;
+	transition: opacity 0.24s, left 0.0s ease 0.24s;
+	padding: 64px 0;
+	&.open {
+		left: 0;
+		opacity: 1.0;
+		transition: opacity 0.24s, left 0.0s ease 0.0s;
+		.gallery {
+			&-overlay { top: 0; right: 0; bottom: 0; left: 0; }
+		}
+	}
+	&.loading {
+		.gallery {
+			&-image { opacity: 0.0; transition: opacity 0.0s; }
+			&-transition { z-index: 20; }
+		}
+	}
+	&-overlay {
+		position: fixed;
+		z-index: 5;
+		background: rgba(53,61,73,0.84);
+		background: rgba(0,0,0,0.64);
+	}
+	&-main {
+		width: 100%;
+		max-width: 1200px;
+		position: relative;
+		top: 0; left: 0;
+		z-index: 10;
+		margin: auto;
+	}
+	&-wrap {
+		width: 100%;
+	}
+	&-image {
+		width: 100%;
+		height: auto;
+		box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+		position: relative;
+		z-index: 15;
+		opacity: 1.0;
+		transition: all 0.24s;
+		&__img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	&-spinner {
+		width: 48px;
+		height: 48px;
+		position: fixed;
+		top: 50%; left: 50%;
+		z-index: 10;
+		transform: translate3d(-50%,-50%,0);
+		span {
+			display: block;
+			width: 48px;
+			height: 48px;
+			border-top: 2px solid color('champagne');
+			border-right: 2px solid transparent;
+			border-bottom: 2px solid transparent;
+			border-left: 2px solid transparent;
+			border-radius: 50%;
+			animation: spinner 0.6s cubic-bezier(0.85,-0.02, 0.35, 1.33) 0.0s infinite;
+		}
+	}
+	&-close {}
+}
+
+
+@include keyframes(spinner){
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+
+////////////////////
+// Breakpoints    //
+////////////////////
+@media screen and (min-width:769px) {
+	.index-photos {
+		&__figure {
+			&:hover {
+				.index-photos__hover {
+					opacity: 1.0;
+					transform: translate3d(-50%,0,0);
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width:767px) {
+	.index-photos {
+		&::before {
+			border-width: 5vh 0 0 100vw;
+			top: -5vh;
+		}
+		&__wrap {
+			padding: 12vh 4px;
+		}
+	}
+	.gallery {
+		&-overlay {
+			cursor: pointer;
+		}
+	}
+}
+
+

@@ -1,0 +1,54 @@
+///////////////////
+// FONTS         //
+///////////////////
+@font-face {
+	font-family: 'Gotham Narrow Light';
+	src: url('GothamNarrow-Light.eot');
+	src: url('GothamNarrow-Light.eot?#iefix') format('embedded-opentype'),
+	     url('GothamNarrow-Light.woff') format('woff'),
+	     url('GothamNarrow-Light.ttf') format('truetype'),
+	     url('GothamNarrow-Light.svg') format('svg');
+}
+@font-face {
+	font-family: 'Gotham Narrow Book';
+	src: url('GothamNarrow-Book.eot');
+	src: url('GothamNarrow-Book.eot?#iefix') format('embedded-opentype'),
+	     url('GothamNarrow-Book.woff') format('woff'),
+	     url('GothamNarrow-Book.ttf') format('truetype'),
+	     url('GothamNarrow-Book.svg') format('svg');
+}
+
+
+
+
+///////////////////
+// TEMPLATES     //
+///////////////////
+
+// With path() function
+// @font-face {
+// 	font-family: '';
+// 	src: url(path('.eot', font, ''));
+// 	src: url(path('.eot?#iefix', font, '')),
+// 		 url(path('.woff', font, '')),
+// 		 url(path('.ttf', font, '')),
+// 		 url(path('.svg', font, ''));
+// }
+
+// Without it
+// @font-face {
+// 	font-family: '';
+// 	src: url('../fonts//.eot');
+// 	src: url('../fonts//.eot?#iefix') format('embedded-opentype'),
+// 	     url('../fonts//.woff') format('woff'),
+// 	     url('../fonts//.ttf') format('truetype'),
+// 	     url('../fonts//.svg') format('svg');
+// }
+
+$lato: 'Lato', sans-serif;
+$gotham-narrow--light: 'Gotham Narrow Light', sans-serif;
+$gotham-narrow--book: 'Gotham Narrow Book', sans-serif;
+$playfair: 'Playfair Display', serif;
+$playfair-sc: 'Playfair Display SC', serif;
+$slabo: 'Slabo 27px', serif;
+$inconsolata: 'Inconsolata', sans-serif;

@@ -1,0 +1,81 @@
+.index-about {
+	width: 100%;
+	height: auto;
+	display: block;
+	background: #f9f9f9;
+	padding: 20vh 0 27vh 0;
+	position: relative;
+	z-index: 10;
+	border-top: 1px solid #f9f9f9;
+	// &::before {
+	// 	content: '';
+	// 	display: block;
+	// 	width: 0; height: 0;
+	// 	border-style: solid;
+	// 	border-width: 0 0 7vh 100vw;
+	// 	border-color: transparent transparent #f9f9f9 transparent;
+	// 	position: absolute;
+	// 	top: -7vh;
+	// 	left: 0;
+	// }
+	&__wrap {
+		max-width: 720px;
+		margin: 0 auto;
+		@include flexbox();
+		@include flex-direction(row);
+		@include align-items(center);
+		@include justify-content(center);
+	}
+	&__aside {
+		width: auto;
+		margin: auto 48px auto auto;
+	}
+	&__heading {
+		font: 400 54px/56px $playfair;
+		color: #222;
+		span { display: block; }
+	}
+	&__main {
+		padding: 0 0 0 48px;
+		@include flex(1);
+		position: relative;
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0; left: 0; bottom: 0;
+			width: 2px;
+			border-radius: 2px;
+			background: color('champagne');
+			background: color('gold');
+		}
+	}
+	&__message {
+		font: 400 18px/24px $inconsolata;
+		color: #222;
+		padding: 12px 0;
+	}
+}
+
+
+////////////////////
+// Breakpoints    //
+////////////////////
+@media screen and (max-width:767px) {
+	.index-about {
+		padding: 10vh 0 15vh 0;
+		&::before { display: none; }
+		&__wrap {
+			flex-direction: column;
+			text-align: center;
+		}
+		&__aside { margin: 0; }
+		&__heading { font-size: 40px; line-height: 46px; }
+		&__main {
+			padding: 0 24px;
+			margin-top: 24px;
+			&::before { display: none; }
+		}
+		&__message { font-size: 16px; }
+	}
+}

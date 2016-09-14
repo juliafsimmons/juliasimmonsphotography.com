@@ -1,0 +1,29 @@
+	<a id="photos"></a>
+	<section class="index-photos">
+		<div class="index-photos__wrap">
+			<h3 class="index-photos__heading">Featured Photos</h3>
+			<div class="index-photos__grid">
+				{% for image in images %}
+					<figure class="index-photos__figure" data-full-res="/assets/gallery/{{ image.full }}">
+						<img src="" data-src="/assets/gallery/{{ image.small }}" class="index-photos__photo lazyload">
+						<div class="index-photos__hover"><i class="fa fa-search"></i></div>
+					</figure>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+
+	<section class="gallery">
+		<div class="gallery-overlay"></div>
+		<div class="gallery-close"><span></span></div>
+		<main class="gallery-main">
+			<div class="gallery-wrap">
+				<div class="gallery-image">
+					<img src="" data-src="file:///Users/mattsimmons/Desktop/juliasimmons//assets/gallery/ig-12__2000x.jpg" class="gallery-image__img lazyload">
+				</div>
+				<div class="gallery-spinner">
+					<span></span>
+				</div>
+			</div>
+		</main>
+	</section>

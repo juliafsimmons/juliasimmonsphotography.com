@@ -1,0 +1,41 @@
+{% extends "layout.nunjucks" %}
+
+{% block content %}
+
+	<header class="hero">
+		<img src="assets/logo--white.png" class="hero-logo">
+		<div class="hero-loading" style="background-image: url('assets/index-slider__slide-1--blur.jpg');"></div>
+		<section class="hero-slide active" data-index="1">
+			<img src="" data-src="assets/index-slider__slide-1--large.jpg" class="lazyload">
+		</section>
+		<section class="hero-controls">
+			<div class="hero-controls__prev"></div>
+			<div class="hero-controls__next"></div>
+		</section>
+		<section class="hero-transition"></section>
+	</header>
+
+	{% include 'partials/nav.nunjucks' %}
+
+	<a id="about"></a>
+	<section class="index-about">
+		<div class="index-about__wrap">
+			<aside class="index-about__aside">
+				<h2 class="index-about__heading">Hi, <span>I&#39;m Julia</span></h2>
+			</aside>
+			<main class="index-about__main">
+				<p class="index-about__message">
+					&#8230;and I am an engagement, wedding and family photographer in Columbus, OH. I'm absolutely in love with capturing raw emotion, to step into life's priceless moments and not let them slip away.
+				</p>
+				<p class="index-about__message">
+					My passion is to shape light and open a window into the soul, to feel the warmth of a memory remembered, to capture a moment so it lives forever, and to share it with those we love.
+				</p>
+			</main>
+		</div>
+	</section>
+
+	{% include 'partials/photo-grid.nunjucks' %}
+
+	{% include 'partials/footer.nunjucks' %}
+
+{% endblock %}

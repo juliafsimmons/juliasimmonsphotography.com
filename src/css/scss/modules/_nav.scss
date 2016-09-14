@@ -1,0 +1,108 @@
+////////////////////
+// Default Styles //
+////////////////////
+.navbar {
+	width: 100vw;
+	height: 72px;
+	// position: absolute;
+	// bottom: 0; left: 0;
+	// z-index: 200;
+	// background: rgba(255,255,255,0.96);
+	background: #fff;
+	border-bottom: 1px solid #eee;
+	&-wrap {
+		width: 100%;
+		max-width: 800px;
+		height: 100%;
+		margin: 0 auto;
+		@include flexbox();
+		@include flex-direction(row);
+		@include align-items(center);
+		@include justify-content(center);
+	}
+	&-list {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		list-style-type: none;
+		// width: auto;
+		// padding: 0 24px;
+		&__item {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			flex: 1;
+			text-align: center;
+			// padding: 0 24px;
+			&-link {
+				display: inline-block;
+				position: relative;
+				// top: 50%; left: 0;
+				// transform: translate(0,-50%);
+				font: 400 15px/16px $gotham-narrow--book;
+				@include psd-letter-spacing(60);
+				color: #333;
+				text-transform: uppercase;
+				padding: 12px 0;
+				&::after {
+					content: '';
+					display: inline-block;
+					width: 100%;
+					height: 2px;
+					position: absolute;
+					bottom: 0; left: 50%;
+					transform: translate(-50%,0) rotateY(70deg);
+					background: rgba(0,0,0,0.0);
+					// margin: 4px 0 0 0;
+					transition: all 0.14s;
+				}
+				&:hover {
+					text-decoration: none;
+					&::after {
+						opacity: 1.0;
+						background: color('gold');
+						transform: translate(-50%,0) rotateY(0deg);
+					}
+				}
+			}
+		}
+	}
+	// &-logo {
+	// 	width: 72px;
+	// 	height: auto;
+	// }
+}
+
+
+
+
+////////////////////
+// Breakpoints    //
+////////////////////
+@media screen and (max-width:767px) {
+	.navbar {
+		height: 56px;
+		// top: calc(100% - 56px);
+		// background: #fff;
+		// &-wrap { flex-direction: column; }
+		&-list {
+			// display: flex;
+			// width: 100%;
+			// margin-left: 0;
+			// padding: 0;
+			&__item {
+				// flex: 1;
+				// text-align: center;
+				&-link {
+					display: block;
+					height: 56px;
+					font-size: 13px;
+					line-height: 56px;
+					padding: 0;
+					&::after { display: none; }
+				}
+			}
+		}
+	}
+}

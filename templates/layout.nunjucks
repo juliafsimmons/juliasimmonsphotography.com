@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="{{ page_description }}" />
+	<meta name="robots" content="follow">
+
+	<title>Julia Simmons Photography | Columbus, Ohio Wedding + Engagement Photos</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display|Playfair+Display+SC|Inconsolata" rel="stylesheet">
+	<link rel="stylesheet" media="screen" href="assets/juliasimmons.css">
+	<link rel="icon" type="image/png" href="assets/logo--small.png">
+	<script src="https://use.fontawesome.com/5e3d449ba6.js" async></script>
+
+</head>
+<body class="template-index">
+
+	{% block content %}{% endblock %}
+
+	<!-- Scripts -->
+	<script src="assets/juliasimmons.js" async></script>
+	
+</body>
+</html>

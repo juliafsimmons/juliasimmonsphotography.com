@@ -1,0 +1,15 @@
+$build: 'local';
+@import 'build';
+
+$paths: (
+	image: '../../images/',
+	font: '../../fonts/'
+);
+
+@function path($asset: '', $type: image, $dir: '') {
+	@if $build == 'local' {
+		@return map-get($paths, $type)+$dir+$asset+'';
+	} @else {
+		@return ''+$asset+'';
+	}
+}

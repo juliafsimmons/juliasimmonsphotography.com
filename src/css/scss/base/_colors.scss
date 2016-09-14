@@ -1,0 +1,21 @@
+$blue: #336699;
+
+$color: (
+	'gold': (
+		base: #e7cf86
+	),
+	'pink': (
+		base: #ed968e
+	),
+	'champagne': (
+		base: #f7e7ce
+	),
+	'navy': (
+		base: #353d49
+	)
+);
+@function color($color-name, $tone: base) {
+	@return map-get(map-get($color, $color-name), $tone);
+}
+// color('blue', 'light') is how to get colors loaded
+

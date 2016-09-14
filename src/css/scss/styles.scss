@@ -1,0 +1,49 @@
+// ==================================================
+//
+//
+//         			JuliaSimmons.css
+// 
+//
+// ==================================================
+
+// ---------------
+// 		BASE
+// ---------------
+// Mixins
+@import 'base/bourbon/bourbon';
+@import 'base/mixins';
+@import 'base/flexbox';
+@import 'base/family';
+
+// Maps
+@import 'base/colors';
+@import 'base/paths';
+
+// Reset & Fonts
+@import 'base/reset';
+@import 'base/fonts';
+
+
+// ---------------------
+// 		STYLE GUIDE
+// ---------------------
+@import 'style-guide/vars';
+@import 'style-guide/buttons';
+
+
+// ------------------
+// 		MODULES
+// ------------------
+@import 'modules/global';
+@import 'modules/nav';
+@import 'modules/footer';
+
+
+// -------------------
+// 		TEMPLATES
+// -------------------
+// index
+@import 'templates/index/hero';
+@import 'templates/index/about';
+@import 'templates/index/photos';
+

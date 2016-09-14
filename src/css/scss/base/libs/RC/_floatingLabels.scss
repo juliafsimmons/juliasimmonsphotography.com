@@ -1,0 +1,192 @@
+////////////////////////////////
+// RocketCode Floating Labels //
+////////////////////////////////
+
+/******************************
+Assumes markup is like this:
+
+	<span class="floating-label">
+		<input type="email" id="input_name" name="input_name" required autocomplete="email">
+		<label for="input_name">Email</label>
+	</span> 
+
+Currently only supports moving text up
+
+@TODO: make position variable (top, left, right, bottom)
+@TODO: enable placeholder fallback
+@TODO: better comments to explain multi-split, split-two, split-three, split-four
+*******************************/
+
+$floating_label--border_color: #c7c7c7;
+$floating_label--border_color-active: #1daeec;
+$floating_label--border_width: 3px;
+$floating_label--border_radius: 4px;
+$floating_label--text_color: #111;
+$floating_label--label_color: #bbb;
+$floating_label--label_color-active: #bbb;
+$floating_label--text_size: 14px;
+$floating_label--text_size-active: 8px;
+$floating_label--error_color: #fb0c00;
+$floating_label--bottom_margin: 16px;
+$floating_label--right_margin: $floating_label--bottom_margin;
+$floating_label--split_margin: $floating_label--right_margin / 2;
+
+
+.floating-label{
+	display: block;
+	position: relative;
+	margin-bottom: $floating_label--bottom_margin;
+	&.split{
+		&--two{
+			width: calc(50% - #{$floating_label--split_margin});
+			float: left;
+			clear: none;
+			margin-right: $floating_label--right_margin;
+			+ .split--two:not(.multi-split){
+				margin-right: 0;
+				+ .floating-label:not(.multi-split){
+					clear: both;
+				}
+			}
+			@media screen and (max-width: 600px){
+				width: 100%;
+				margin-right: 0;
+			}
+		}
+		&--three{
+			width: calc(33% - #{$floating_label--split_margin + 1});
+			float: left;
+			clear: none;
+			margin-right: $floating_label--right_margin;
+			+ .split--three + .split--three{
+				margin-right: 0;
+				+ .floating-label{
+					clear: both;
+				}
+			}
+			@media screen and (max-width: 600px){
+				width: 100%;
+				margin-right: 0;
+			}
+		}
+		&--four-big{
+			width: calc(75% - #{$floating_label--split_margin});
+			float: left;
+			clear: none;
+			margin-right: $floating_label--right_margin;
+			+ .split--four-small:not(.multi-split){
+				margin-right: 0;
+				+ .floating-label:not(.multi-split){
+					clear: both;
+				}
+			}
+			@media screen and (max-width: 600px){
+				width: 100%;
+				margin-right: 0;
+			}
+		}
+		&--four-small{
+			// width: calc(25% - #{$floating_label--split_margin + ($floating_label--right_margin / 4)});
+			// You will need the above if you are doing 4 in a row, not big + small
+			width: calc(25% - #{$floating_label--split_margin});
+			float: left;
+			clear: none;
+			margin-right: $floating_label--right_margin;
+			+ .split--four-big:not(.multi-split){
+				margin-right: 0;
+				+ .floating-label:not(.multi-split){
+					clear: both;
+				}
+			}
+			+ .split--four-small + .split--four-small + .split--four-small{
+				margin-right: 0;
+			}
+			@media screen and (max-width: 600px){
+				width: 100%;
+				margin-right: 0;
+			}
+		}
+	}
+	label{
+		color: $floating_label--label_color;
+		position: absolute;
+		top: 31%;
+		left: 18px;
+		opacity: 1;
+		font-size: 16px;
+		transition: font-size 0.34s ease;
+		transition-property: font-size, top, opacity;
+		cursor: text;
+		transform: translate3d(0,0,0);
+		width: 90%;
+		text-transform: uppercase;
+		user-select: none;
+	}
+	input,
+	select{
+		width: 100%;
+		border: none;
+		color: $floating_label--text_color;
+		border: $floating_label--border_width solid $floating_label--border_color;
+		border-radius: $floating_label--border_radius;
+		padding: 25px 16px 5px;
+		font-size: $floating_label--text_size;
+		margin-bottom: 5px;
+		transition: border 0.34s ease;
+		transform: translate3d(0,0,0);
+		-webkit-appearance: none;
+		&:hover{
+			border-color: darken($floating_label--border_color, 15%);
+		}
+		&:focus{
+			border-color: $floating_label--border_color-active;
+			outline: none;
+		}
+	}
+	input{
+		&:focus + label,
+		&[required]:valid + label,
+		&.filled + label{
+			font-size: $floating_label--text_size-active;
+			top: 14px;
+			color: $floating_label--label_color-active;
+		}
+		&.filled:invalid{
+			border-color: $floating_label--error_color;
+			+ label {
+				color: $floating_label--error_color;
+			}
+		}
+	}
+	select{
+		height: 52px;
+		+ label{
+			cursor: auto;
+			pointer-events: none;
+		}
+		&:focus + label,
+		&[required]:valid + label,
+		&.filled + label{
+			font-size: $floating_label--text_size-active;
+			top: 14px;
+			// opacity: 0;
+			color: $floating_label--label_color-active;
+		}
+	}
+	.error-text{
+		color: $floating_label--error_color;
+		font-size: $floating_label--text_size;
+		display: none;
+	}
+	&.error{
+		label{
+			color: $floating_label--error_color;
+		}
+		input{
+			border-color: $floating_label--error_color;
+		}
+		.error-text{
+			display: block;
+		}
+	}
+}
