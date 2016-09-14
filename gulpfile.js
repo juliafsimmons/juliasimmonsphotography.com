@@ -45,6 +45,7 @@ var devProcessors = [
 	],
 	prodProcessors = [
 		// pxToRem({rootValue: 16, replace: false, mediaQuery: true}),
+		autoprefixer(),
 		mqPacker()
 	];
 
