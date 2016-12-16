@@ -11,7 +11,7 @@ JS.index.photos = (function(JS, $){
 		$(document).on('click', '.gallery-overlay', close);
 		$(document).on('click', '.index-photos__figure', function(){
 			if ($(this).attr('data-full-res') !== '/assets/gallery/') {
-				// changeImage('file:///Users/mattsimmons/Desktop/juliasimmons' + $(this).attr('data-full-res'), $(this).find('.index-photos__photo').attr('src'));
+				// changeImage('file:///Users/mattsimmons/Desktop/juliasimmonsphotography.com' + $(this).attr('data-full-res'), $(this).find('.index-photos__photo').attr('src'));
 				changeImage($(this).attr('data-full-res'), $(this).find('.index-photos__photo').attr('src'));
 				open();
 			}
@@ -50,7 +50,7 @@ JS.index.photos = (function(JS, $){
 
 			// TEMP!!
 			// $('.index-photos__photo').each(function(){
-			// 	$(this).attr('data-src', 'file:///Users/mattsimmons/Desktop/juliasimmons' + $(this).attr('data-src'));
+			// 	$(this).attr('data-src', 'file:///Users/mattsimmons/Desktop/juliasimmonsphotography.com' + $(this).attr('data-src'));
 			// });
 			// END TEMP
 			$('.index-photos__grid').lazzyload({
